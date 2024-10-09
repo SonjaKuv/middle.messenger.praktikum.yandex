@@ -2,8 +2,8 @@
 
 <body>
   <main class="main auth">
-    <h1 class="auth_title title">вход</h1>
-    <form action="" method="" class="form auth_form">
+    <h1 class="main_title">вход</h1>
+    <form action="" method="" class="form">
       <label class="form_label error">
         <input class="form_input" type="text" name="login" required />
         <span class="form_palceholder">Логин</span>
@@ -16,7 +16,7 @@
       </label>
       {{> button label="Авторизоваться"}}
     </form>
-    <a class="auth_link" href="/reg.html">Создать аккаунт</a>
+    {{> link href="src/pages/reg.html" title="Создать аккаунт"}}
   </main>
 </body>
 

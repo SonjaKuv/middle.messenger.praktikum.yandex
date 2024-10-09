@@ -39,9 +39,10 @@ body {
     height: 100vh;
     margin: 0 auto;
     min-width: 340px;
+    overflow: hidden;
 }
 
-.title {
+.main_title {
     position: relative;
     font: 500 36px/130% @title-font; 
     color: @dark-color;
@@ -50,7 +51,7 @@ body {
 }
 
 
-.title::before {
+.auth .main_title::before {
     content: '';
     display: block;
     position: absolute;
@@ -65,11 +66,27 @@ body {
 }
 
 .form {
+    position: relative;
     width: 100%;
     max-width: 280px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.reg .form::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -138px;
+    bottom: 14px;
+    width: 123px;
+    height: 122px;
+    background-image: url(/static/images/reg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+    transform: scale(-1, 1);
 }
 
 .form_label {
@@ -151,7 +168,11 @@ input:-webkit-autofill:active {
     background-color: @block-background;
 }
 
-.auth_link {
+.reg .form_button {
+    margin-top: 32px;
+}
+
+.main_link {
     font: 500 11px/130% @text-font;
     color: @dark-color;
     text-decoration: none;
@@ -161,5 +182,10 @@ input:-webkit-autofill:active {
 @media screen and (max-width: 640px) {
     .main {
         width: calc(100% - 16px);
+    }
+
+    .auth .main_title::before,
+    .reg .form::before {
+        content: none;
     }
 }
