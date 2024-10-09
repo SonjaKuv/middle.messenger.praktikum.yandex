@@ -1,0 +1,165 @@
+@dark-color: #676C6F;
+@text-color: #E25977;
+@block-background: #a3fb2624;
+@error-color: #EA3232;
+@lines-color: #ee104166;
+@button-color: #8BC33B;
+@shadow: #8ecadd4d;
+@transparent-background: #ee104124;
+@title-font: "Alegreya SC", sans-serif;
+@text-font: "IBM Plex Sans", sans-serif;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    font: 400 12px/130% @text-font; 
+    color: @text-color;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 60px);
+    max-width: 1320px;
+    height: 100vh;
+    margin: 0 auto;
+    min-width: 340px;
+}
+
+.title {
+    position: relative;
+    font: 500 36px/130% @title-font; 
+    color: @dark-color;
+    margin-bottom: 28px;
+    max-width: 280px;
+}
+
+
+.title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -114px;
+    top: -64px;
+    width: 108px;
+    height: 108px;
+    background-image: url(/static/images/auth.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
+
+.form {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form_label {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_input {
+    width: 100%;
+    font-size: 15px;
+    color: @dark-color;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid @lines-color;
+    height: 22px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px #ffff inset !important;
+  background-color: #ffff !important;
+  background-clip: content-box !important;
+}
+
+.form_palceholder {
+    position: absolute;
+    font-size: 15px;
+    color: @lines-color;
+    transition: all 0.3s ease;
+}
+
+.form_input:focus ~ .form_palceholder {
+    font-size: 9px;
+    transform: translateY(-18px);
+}
+
+.form_label.error .form_input {
+    color: @error-color;
+    border-bottom: 1px solid @error-color;
+}
+
+.form_label .form_error-text {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px;
+    line-height: 8px;
+    color: @error-color;
+    margin: 0 auto;
+    display: none;
+}
+
+.form_label.error .form_error-text {
+    display: block;
+}
+
+.form_button {
+    font: 500 15px/19px @text-font;
+    color: #fff;
+    border: none;
+    background-color: @button-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px @shadow;
+    padding: 9px 10px;
+    margin-top: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.form_button:hover,
+.form_button:focus,
+.form_button:active {
+    color: @button-color;
+    background-color: @block-background;
+}
+
+.auth_link {
+    font: 500 11px/130% @text-font;
+    color: @dark-color;
+    text-decoration: none;
+    margin-top: 14px;
+}
+
+@media screen and (max-width: 640px) {
+    .main {
+        width: calc(100% - 16px);
+    }
+}
