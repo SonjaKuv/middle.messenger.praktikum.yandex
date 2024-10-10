@@ -6,6 +6,7 @@
 body {
   max-width: 100%;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   font: 400 12px/130% "IBM Plex Sans", sans-serif;
   color: #E25977;
@@ -15,38 +16,50 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+.page-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 340px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: calc(100% - 60px);
-  max-width: 1320px;
-  height: 100vh;
-  margin: 0 auto;
-  min-width: 340px;
-  overflow: hidden;
+  padding: 70px 0 84px;
+  margin: auto;
 }
-.main_title {
+.main__title {
   position: relative;
   font: 500 36px/130% "Alegreya SC", sans-serif;
   color: #676C6F;
-  margin-bottom: 28px;
+  margin: 0 0 28px;
   max-width: 280px;
 }
-.auth .main_title::before {
-  content: '';
-  display: block;
-  position: absolute;
-  right: -114px;
-  top: -64px;
-  width: 108px;
-  height: 108px;
-  background-image: url(/static/images/auth.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 10;
+.main__link {
+  font: 500 11px/130% "IBM Plex Sans", sans-serif;
+  color: #676C6F;
+  text-decoration: none;
+  margin-top: 14px;
 }
 .form {
   position: relative;
@@ -56,58 +69,17 @@ body {
   flex-direction: column;
   gap: 30px;
 }
-.reg .form::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: -138px;
-  bottom: 14px;
-  width: 123px;
-  height: 122px;
-  background-image: url(/static/images/reg.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 10;
-  transform: scale(-1, 1);
-}
-.form_label {
+.form__label {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.form_input {
-  width: 100%;
-  font-size: 15px;
-  color: #676C6F;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #ee104166;
-  height: 22px;
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 60px #ffff inset !important;
-  background-color: #ffff !important;
-  background-clip: content-box !important;
-}
-.form_palceholder {
-  position: absolute;
-  font-size: 15px;
-  color: #ee104166;
-  transition: all 0.3s ease;
-}
-.form_input:focus ~ .form_palceholder {
-  font-size: 9px;
-  transform: translateY(-18px);
-}
-.form_label.error .form_input {
+.form__label.error .form__input {
   color: #EA3232;
   border-bottom: 1px solid #EA3232;
 }
-.form_label .form_error-text {
+.form__label .form__error-text {
   position: absolute;
   bottom: -12px;
   left: 50%;
@@ -118,10 +90,37 @@ input:-webkit-autofill:active {
   margin: 0 auto;
   display: none;
 }
-.form_label.error .form_error-text {
+.form__label.error .form__error-text {
   display: block;
 }
-.form_button {
+.form__input {
+  width: 100%;
+  font-size: 15px;
+  color: #676C6F;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ee104166;
+  height: 22px;
+}
+.form__input:focus ~ .form__palceholder {
+  font-size: 9px;
+  transform: translateY(-18px);
+}
+.form__input:-webkit-autofill,
+.form__input:-webkit-autofill:hover,
+.form__input:-webkit-autofill:focus,
+.form__input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px #ffff inset !important;
+  background-color: #ffff !important;
+  background-clip: content-box !important;
+}
+.form__palceholder {
+  position: absolute;
+  font-size: 15px;
+  color: #ee104166;
+  transition: all 0.3s ease;
+}
+.form__button {
   font: 500 15px/19px "IBM Plex Sans", sans-serif;
   color: #fff;
   border: none;
@@ -133,26 +132,89 @@ input:-webkit-autofill:active {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.form_button:hover,
-.form_button:focus,
-.form_button:active {
+.form__button:hover,
+.form__button:focus,
+.form__button:active {
   color: #8BC33B;
   background-color: #a3fb2624;
 }
-.reg .form_button {
+.auth .main__title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -114px;
+  top: -64px;
+  width: 108px;
+  height: 108px;
+  background-image: url('/static/images/auth.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+}
+.reg .form::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -138px;
+  bottom: 14px;
+  width: 123px;
+  height: 122px;
+  background-image: url('/static/images/reg.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+  transform: scale(-1, 1);
+}
+.reg .form__button {
   margin-top: 32px;
 }
-.main_link {
-  font: 500 11px/130% "IBM Plex Sans", sans-serif;
-  color: #676C6F;
-  text-decoration: none;
-  margin-top: 14px;
+.not-found {
+  flex-direction: row;
+  gap: 36px;
+  padding: 28px 0 26px;
+}
+.not-found__container {
+  text-align: center;
+  margin: 0 0 168px 50px;
+}
+.not-found__title {
+  font-size: 96px;
+  line-height: 96px;
+  padding-left: 30px;
+  margin-bottom: 46px;
+}
+.not-found__text {
+  max-width: 310px;
+  font: 500 32px/130% "IBM Plex Sans", sans-serif;
+  color: #ee104166;
+  margin-bottom: 58px;
+}
+.not-found__link {
+  font-size: 15px;
+}
+.not-found__image {
+  max-width: 491px;
+  width: 50%;
+  margin-top: 23px;
+}
+@media screen and (max-width: 999px) {
+  .not-found {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+  .not-found__image {
+    max-width: 121px;
+    margin: 0;
+  }
+  .not-found__container {
+    margin: 0;
+  }
 }
 @media screen and (max-width: 640px) {
   .main {
     width: calc(100% - 16px);
   }
-  .auth .main_title::before,
+  .auth .main__title::before,
   .reg .form::before {
     content: none;
   }
