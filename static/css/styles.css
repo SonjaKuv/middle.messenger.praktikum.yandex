@@ -168,46 +168,77 @@ body {
 .reg .form__button {
   margin-top: 32px;
 }
-.not-found {
+.not-found,
+.server-error {
   flex-direction: row;
   gap: 36px;
   padding: 28px 0 26px;
 }
-.not-found__container {
+.not-found__container,
+.server-error__container {
   text-align: center;
   margin: 0 0 168px 50px;
 }
-.not-found__title {
+.not-found__title,
+.server-error__title {
   font-size: 96px;
   line-height: 96px;
   padding-left: 30px;
   margin-bottom: 46px;
 }
-.not-found__text {
+.not-found__text,
+.server-error__text {
   max-width: 310px;
   font: 500 32px/130% "IBM Plex Sans", sans-serif;
   color: #ee104166;
   margin-bottom: 58px;
 }
-.not-found__link {
+.not-found__link,
+.server-error__link {
   font-size: 15px;
 }
-.not-found__image {
+.not-found__image,
+.server-error__image {
   max-width: 491px;
   width: 50%;
   margin-top: 23px;
 }
+.server-error {
+  gap: 19px;
+}
+.server-error__image {
+  max-width: 486px;
+  margin: 0;
+}
+.server-error__container {
+  margin: 102px 46px 0 0;
+}
+.server-error__title {
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 44px;
+}
+.server-error__text {
+  max-width: 470px;
+  margin: 0;
+}
 @media screen and (max-width: 999px) {
-  .not-found {
+  .not-found,
+  .server-error {
     flex-direction: column-reverse;
     gap: 0;
   }
-  .not-found__image {
+  .not-found__image,
+  .server-error__image {
     max-width: 121px;
     margin: 0;
   }
-  .not-found__container {
+  .not-found__container,
+  .server-error__container {
     margin: 0;
+  }
+  .server-error {
+    gap: 40px;
   }
 }
 @media screen and (max-width: 640px) {

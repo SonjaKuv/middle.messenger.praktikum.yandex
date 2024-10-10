@@ -204,7 +204,8 @@ body {
 }
 
 // not-found
-.not-found {
+.not-found,
+.server-error {
     flex-direction: row;
     gap: 36px;
     padding: 28px 0 26px;
@@ -240,8 +241,33 @@ body {
 
 }
 
+.server-error {
+    gap: 19px;
+
+    &__image {
+        max-width: 486px;
+        margin: 0;
+    }
+    &__container {
+        margin: 102px 46px 0 0;
+    }
+
+    &__title {
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 44px;
+    }
+    &__text {
+        max-width: 470px;
+        margin: 0;
+    }
+
+}
+
 @media screen and (max-width: 999px) {
-    .not-found {
+
+    .not-found,
+    .server-error {
         flex-direction: column-reverse;
         gap: 0;
 
@@ -253,6 +279,10 @@ body {
         &__container {
             margin: 0;
         }
+    }
+
+    .server-error {
+        gap: 40px;
     }
 }
 
