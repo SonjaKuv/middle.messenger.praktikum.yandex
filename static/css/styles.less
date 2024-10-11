@@ -42,7 +42,6 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    max-width: 1280px;
     min-width: 340px;
     height: 100vh;
     margin: 0 auto;
@@ -60,7 +59,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(100% - 60px);
     padding: 70px 0 84px;
     margin: auto;
 
@@ -148,6 +146,7 @@ body {
     }
 
     &__button {
+        width: 280px;
         font: 500 15px/19px @text-font;
         color: #fff;
         border: none;
@@ -155,7 +154,7 @@ body {
         border-radius: 8px;
         box-shadow: 0 4px 4px @shadow;
         padding: 9px 10px;
-        margin-top: 54px;
+        margin: 54px auto 0;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
@@ -241,6 +240,7 @@ body {
 
 }
 
+// server-error
 .server-error {
     gap: 19px;
 
@@ -248,6 +248,7 @@ body {
         max-width: 486px;
         margin: 0;
     }
+
     &__container {
         margin: 102px 46px 0 0;
     }
@@ -257,9 +258,184 @@ body {
         padding: 0;
         margin-bottom: 44px;
     }
+
     &__text {
         max-width: 470px;
         margin: 0;
+    }
+
+}
+
+// aside
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 16px 0;
+    background-color: @block-background;
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 0 16px;
+
+        & svg {
+            width: 32px;
+            height: 32px;
+            stroke: @text-color;
+        }
+
+        & svg path {
+            stroke: @text-color;
+        }
+
+        &.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: @text-color;
+            border-radius: 4px;
+        }
+    }
+}
+
+// profile
+
+.profile {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0 auto;
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 60px 84px 30px 20px;
+    }
+
+    &__avatar {
+        display: block;
+        width: 130px;
+        height: 130px;
+        position: relative;
+        outline: none;
+        border: none;
+        background-color: @transparent-background;
+        border-radius: 50%;
+        margin: 0 auto;
+        cursor: pointer;
+
+        &-image {
+            max-width: 70px;
+        }
+
+        &-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font: 500 13px/14px @text-font;
+            color: #fff;
+            opacity: 0;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &:hover &-text {
+            opacity: 1;
+        }
+    }
+
+
+    &__title {
+        font-size: 26px;
+        margin: 32px auto;
+    }
+
+    &__form {
+        max-width: 510px;
+        margin: 0 auto;
+        gap: 15px;
+
+        & .form__label {
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid #ee104166;
+        }
+
+        & .form__input {
+            max-width: 50%;
+            border: none;
+            text-align: end;
+        }
+
+        & .form__palceholder {
+            position: static;
+            font-weight: 500;
+        }
+    }
+
+    &__container_change {
+        margin: 60px auto 0;
+        display: flex;
+        flex-direction: column;
+        max-width: 510px;
+    }
+
+    &__button_change,
+    &__button_exit {
+        display: block;
+        font: 500 15px @text-font;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: @button-color;
+        text-align: start;
+        margin-bottom: 21px;
+    }
+
+    &__button_exit {
+        color: @error-color;
     }
 
 }
@@ -287,10 +463,6 @@ body {
 }
 
 @media screen and (max-width: 640px) {
-    .main {
-        width: calc(100% - 16px);
-    }
-
     .auth .main__title::before,
     .reg .form::before {
         content: none;
