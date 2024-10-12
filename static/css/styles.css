@@ -367,6 +367,199 @@ body {
 .profile__button_exit {
   color: #EA3232;
 }
+.dialog {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 64px 310px 1fr;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0 auto;
+}
+.dialog__container {
+  position: relative;
+  height: 100vh;
+  padding: 10px 0 0;
+}
+.dialog__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  width: 4px;
+  height: 100%;
+  background-color: #ffcfda;
+}
+.dialog__title {
+  width: calc(100% - 20px);
+  max-width: auto;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0 auto 15px;
+  text-align: center;
+}
+.dialog__search {
+  position: relative;
+  width: calc(100% - 20px);
+  height: 32px;
+  border-radius: 5px;
+  background-color: #a3fb2624;
+  margin: 0 auto 14px;
+}
+.dialog__search-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font: 500 12px/12px "IBM Plex Sans", sans-serif;
+  color: #676C6F;
+  padding: 9px 10px 11px 32px;
+}
+.dialog__search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.dialog__search-activate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, -50%);
+}
+.dialog__search-placeholder {
+  font: 500 12px/12px "IBM Plex Sans", sans-serif;
+  color: #E25977;
+  opacity: 1;
+}
+.dialog__search.active .dialog__search-input {
+  opacity: 1;
+}
+.dialog__search.active .dialog__search-activate {
+  left: 3px;
+  transform: translate(0, -50%);
+}
+.dialog__search.active .dialog__search-placeholder {
+  opacity: 0;
+}
+.dialog__items {
+  height: calc(100% - 100px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.dialog__items::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+}
+.dialog__items::-webkit-scrollbar-track {
+  background: #ffcfda;
+}
+.dialog__items::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #E25977;
+  cursor: grab;
+}
+.dialog__item {
+  display: flex;
+  position: relative;
+  gap: 10px;
+  height: 67px;
+  align-items: flex-start;
+  margin: 2px 0 5px;
+  padding: 10px 55px 10px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.dialog__item:first-child {
+  border-top: 1px solid #E25977;
+}
+.dialog__item::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #E25977;
+}
+.dialog__item:hover {
+  background-color: #ee104124;
+  border-radius: 4px;
+}
+.dialog__item-avatar {
+  display: block;
+  width: 47px;
+  height: 47px;
+  background-color: #ee104124;
+  border-radius: 50%;
+  align-self: center;
+}
+.dialog__item-data {
+  width: 100%;
+}
+.dialog__item-name {
+  font: 700 13px/13px "IBM Plex Sans", sans-serif;
+  color: #676C6F;
+  margin-bottom: 4px;
+}
+.dialog__item-text {
+  height: 30px;
+  font: 400 12px/15px "IBM Plex Sans", sans-serif;
+  color: #E25977;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.dialog__item-date {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font: 400 9px/9px "IBM Plex Sans", sans-serif;
+  color: #E25977;
+}
+.dialog__item-unread {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: block;
+  min-width: 20px;
+  height: 20px;
+  font: 500 12px / 14px "IBM Plex Sans", sans-serif;
+  border-radius: 20px;
+  background-color: #E25977;
+  color: #fff;
+  padding: 3px 4px 4px 6px;
+  max-width: 45px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.dialog__window {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 11px;
+  overflow-y: auto;
+}
+.dialog__window-select {
+  padding: 30px 0;
+  margin: auto;
+}
+.dialog__window-image {
+  max-width: 310px;
+  margin-right: 56px;
+}
+.dialog__window-title {
+  font: 500 24px/130% "Alegreya SC", sans-serif;
+  color: #E25977;
+  text-align: center;
+}
 @media screen and (max-width: 999px) {
   .not-found,
   .server-error {
