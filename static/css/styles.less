@@ -415,15 +415,15 @@ body {
         }
     }
 
-    &__container_change {
+    &__change-container {
         margin: 60px auto 0;
         display: flex;
         flex-direction: column;
         max-width: 510px;
     }
 
-    &__button_change,
-    &__button_exit {
+    &__change-button,
+    &__exit-button {
         display: block;
         font: 500 15px @text-font;
         border: none;
@@ -432,9 +432,10 @@ body {
         color: @button-color;
         text-align: start;
         margin-bottom: 21px;
+        cursor: pointer;
     }
 
-    &__button_exit {
+    &__exit-button {
         color: @error-color;
     }
 

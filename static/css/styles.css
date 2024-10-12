@@ -353,8 +353,8 @@ body {
   flex-direction: column;
   max-width: 510px;
 }
-.profile__button_change,
-.profile__button_exit {
+.profile__change-button,
+.profile__exit-button {
   display: block;
   font: 500 15px "IBM Plex Sans", sans-serif;
   border: none;
@@ -363,8 +363,9 @@ body {
   color: #8BC33B;
   text-align: start;
   margin-bottom: 21px;
+  cursor: pointer;
 }
-.profile__button_exit {
+.profile__exit-button {
   color: #EA3232;
 }
 .dialog {

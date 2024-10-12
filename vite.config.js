@@ -8,9 +8,21 @@ export default defineConfig({
     },
     plugins: [handlebars({
         partialDirectory: resolve(__dirname, "src/partials"),
-        context: {
-            authButton: "Вход",
-        }
     }
     )],
-}) 
+    build: {
+        outDir: 'dist',
+        assetsDir: 'src/pages/',
+        rollupOptions: {
+            input: {
+              main: resolve(__dirname, 'index.html'),
+              auth: resolve(__dirname, 'src/pages/auth.html'),
+              register: resolve(__dirname, 'src/pages/reg.html'),
+              profile: resolve(__dirname, 'src/pages/profile.html'),
+              messages: resolve(__dirname, 'src/pages/dialogs.html'),
+              404: resolve(__dirname, 'src/pages/404.html'),
+              500: resolve(__dirname, 'src/pages/500.html'),
+            }
+        },
+    },
+})
