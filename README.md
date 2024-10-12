@@ -20,3 +20,7 @@
 - `npm run build` - собирает проект и выводит его в папку ./dist
 - `npm run preview` - запуск последней сборки
 - `npm run start` — сборка и запуск проекта: вызывает команду npm run build && node server.js
+
+### Деплой проекта на render.com
+
+[Ссылка на проект](https://middle-messenger-praktikum-yandex-syr2.onrender.com/)
