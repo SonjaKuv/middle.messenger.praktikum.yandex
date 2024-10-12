@@ -347,7 +347,7 @@ body {
   position: static;
   font-weight: 500;
 }
-.profile__container_change {
+.profile__change-container {
   margin: 60px auto 0;
   display: flex;
   flex-direction: column;
