@@ -1,0 +1,36 @@
+{{> header pageTitle="Профиль"}}
+
+<main class="main dialog">
+    {{> aside }}
+    <div class="dialog__container">
+        <h1 class="main__title dialog__title">диалоги</h1>
+        <div class="dialog__search">
+            <input type="search" class="dialog__search-input"/>
+            <button class="dialog__search-activate">
+                <svg class="dialog__search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5924 11.4138C10.1605 12.8457 7.83888 12.8457 6.40696 11.4138C4.97503 9.9819 4.97503 7.6603 6.40695 6.22837C7.83888 4.79645 10.1605 4.79645 11.5924 6.22837C13.0243 7.6603 13.0243 9.9819 11.5924 11.4138ZM12.0328 12.7968C10.0726 14.2962 7.25697 14.1495 5.46415 12.3566C3.51152 10.404 3.51152 7.23819 5.46415 5.28556C7.41677 3.33294 10.5826 3.33294 12.5352 5.28556C14.328 7.07831 14.4747 9.89373 12.9756 11.8539L16.5423 15.4206L15.5995 16.3635L12.0328 12.7968Z" fill="#E25977"/>
+                </svg>
+                <span class="dialog__search-placeholder">поиск</span>
+            </button>
+        </div>
+        <div class="dialog__items">
+            {{> dialogItem name="Андрей" text="Изображение" date="10:49" unreadNumber="2"}}
+            {{> dialogItem name="Киноклуб" text="Вы: стикер" date="12:00" unreadNumber="1"}}
+            {{> dialogItem name="Илья" text="Друзья, у меня для вас особенный выпуск новостей! Блабла " date="15:12" unreadNumber="4"}}
+            {{> dialogItem name="Вадим" text="Круто!" date="Пт" unreadNumber="4"}}
+            {{> dialogItem name="тет-а-теты" text="И Human Interface Guidelines и Material Design рекомендуют блаблабла" date="Ср" unreadNumber="100"}}
+            {{> dialogItem name="1, 2, 3" text="Миллионы россиян ежедневно проводят десятки часов свое блабла" date="Пн" unreadNumber="1000"}}
+            {{> dialogItem name="Design Destroyer" text="В 2008 году художник Jon Rafman начал собирать оченьдлинныеслова" date="Пн" unreadNumber="10000"}}
+            {{> dialogItem name="Day." text="Так увлёкся работой   по курсу, что совсем заблы его анонсировать" date="1 Мая 2020" unreadNumber="1"}}
+            {{> dialogItem name="Бла бла" text=":)" date="1 Мая 2020" unreadNumber="1"}}
+            {{> dialogItem name="Бла бла бла" text="!" date="1 Мая 2020" unreadNumber="1"}}
+        </div>
+    </div>
+    <div class="dialog__window">
+        <div class="dialog__window-select">
+            <img class="dialog__window-image" src="/static/images/chat.svg" alt="Медведь с карандашом."/>
+            <h2 class="dialog__window-title">выберите кому хотели написать</h2>
+        </div>
+    </div>
+</main>
+{{> footer }}
